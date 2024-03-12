@@ -1,9 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
 
+// router imports
 const gameRouter = require('./routes/gameRoutes');
 
-// initializes config and application settings
+// initializes express application
 const app = express();
 
 // middleware configuration
