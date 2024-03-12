@@ -1,14 +1,15 @@
 const express = require('express');
-const dotenv = require('dotenv');
+const morgan = require('morgan');
 
-dotenv.config();
-
+// initializes config and application settings
 const app = express();
+
+// middleware configuration
+app.use(morgan('dev'));
+app.use(express.json());
+
 app.get('/', (req, res) => {
   res.status(200).send('hello from game server!');
 });
-const PORT = process.env.PORT;
 
-app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}`);
-});
+module.exports = app;
