@@ -6,10 +6,11 @@ const gameRouter = require('./routes/gameRoutes');
 
 // initializes express application
 const app = express();
+app.use(express.json());
+app.use(express.static(`${__dirname}/public`));
 
 // middleware configuration
 app.use(morgan('dev'));
-app.use(express.json());
 app.use('/games', gameRouter);
 
 app.get('/', (req, res) => {
