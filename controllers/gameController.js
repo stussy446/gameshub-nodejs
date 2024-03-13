@@ -1,4 +1,8 @@
-// game handling
+const Game = require('../models/gameModel');
+
+// *********
+// GAME HANDLING
+// ***
 exports.getAllGames = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -8,13 +12,22 @@ exports.getAllGames = (req, res) => {
   });
 };
 
-exports.addGame = (req, res) => {
-  res.status(201).json({
-    status: 'success',
-    data: {
-      placeholder: 'add games on this route',
-    },
-  });
+exports.createGame = async (req, res) => {
+  try {
+    const newGame = await Game.create(req.body);
+
+    res.status(201).json({
+      status: 'success',
+      data: {
+        game: newGame,
+      },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'failed',
+      message: err.message,
+    });
+  }
 };
 
 exports.getGame = (req, res) => {
