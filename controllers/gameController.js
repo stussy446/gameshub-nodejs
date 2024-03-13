@@ -57,16 +57,39 @@ exports.getGame = async (req, res) => {
   }
 };
 
-exports.updateGame = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'Update game on this route',
-  });
+exports.updateGame = async (req, res) => {
+  try {
+    const game = await Game.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
+
+    res.status(201).json({
+      status: 'success',
+      game: game,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'failed',
+      message: err.message,
+    });
+  }
 };
 
-exports.deleteGame = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'delete game on this route',
-  });
+exports.deleteGame = async (req, res) => {
+  try {
+    const game = await Game.findByIdAndDelete(req.params.id, {
+      runValidators: true,
+    });
+
+    res.status(200).json({
+      status: 'success',
+      message: `${game.name} successfully deleted`,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'failed',
+      message: err.message,
+    });
+  }
 };
