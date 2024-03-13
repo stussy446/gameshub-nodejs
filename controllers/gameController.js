@@ -3,13 +3,22 @@ const Game = require('../models/gameModel');
 // *********
 // GAME HANDLING
 // ***
-exports.getAllGames = (req, res) => {
-  res.status(200).json({
-    status: 'success',
-    data: {
-      games: 'placeholder',
-    },
-  });
+exports.getAllGames = async (req, res) => {
+  try {
+    const games = await Game.find();
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        games: games,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'failed',
+      message: err.message,
+    });
+  }
 };
 
 exports.createGame = async (req, res) => {
@@ -30,11 +39,22 @@ exports.createGame = async (req, res) => {
   }
 };
 
-exports.getGame = (req, res) => {
-  res.status(500).json({
-    status: 'error',
-    message: 'Get specific game on this route',
-  });
+exports.getGame = async (req, res) => {
+  try {
+    const game = await Game.findById(req.params.id);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        games: game,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'failed',
+      message: err.message,
+    });
+  }
 };
 
 exports.updateGame = (req, res) => {
