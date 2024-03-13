@@ -1,0 +1,27 @@
+[
+  {
+    "name": "The Witcher 3",
+    "rating": 10,
+    "length": 100,
+    "platform": ["PC"]
+  },
+  {
+    "name": "Mass Effect 3",
+    "rating": 9,
+    "length": 65,
+    "platform": ["PC, Xbox, PS4"]
+  },
+
+  {
+    "name": "Kingdom Hearts 2",
+    "rating": 8,
+    "length": 40,
+    "platform": ["Xbox, PS4"]
+  },
+
+  {
+    "name": "Baldurs Gate 3",
+    "rating": 9,
+    "length": 65
+  }
+]
