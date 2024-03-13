@@ -7,6 +7,7 @@ const gameSchema = new mongoose.Schema({
     type: String,
     required: [true, 'A game must have a name'],
     unique: true,
+    trim: true,
   },
   rating: {
     type: Number,
@@ -15,6 +16,11 @@ const gameSchema = new mongoose.Schema({
   length: {
     type: Number,
     required: [true, 'A game must have a length'],
+  },
+  platform: {
+    type: [String],
+    default: ['PC'],
+    trim: true,
   },
 });
 
