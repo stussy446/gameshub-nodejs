@@ -4,6 +4,7 @@ const path = require('path');
 
 // router imports
 const gameRouter = require('./routes/gameRoutes');
+const viewRouter = require('./routes/viewRoutes');
 
 // initializes express application
 const app = express();
@@ -18,16 +19,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(morgan('dev'));
 
 // Routes
+app.use('/', viewRouter);
 app.use('/games', gameRouter);
+
 app.get('/', (req, res) => {
   res.status(200).render('base', {
     tour: 'The Forest Hiker',
     user: 'Steve',
   });
-});
-
-app.get('/', (req, res) => {
-  res.status(200).send('hello from game server!');
 });
 
 module.exports = app;

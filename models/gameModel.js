@@ -22,6 +22,10 @@ const gameSchema = new mongoose.Schema({
     default: ['PC'],
     trim: true,
   },
+  image: {
+    type: String,
+    default: '/img/logo.png',
+  },
 });
 
 const Game = mongoose.model('Game', gameSchema);
