@@ -13,8 +13,20 @@ exports.getOverview = catchAsync(async (req, res, next) => {
   });
 });
 
-exports.getGame = (req, res) => {
+exports.getGame = catchAsync(async (req, res) => {
+  const game = await Game.findById(req.params.id);
+
+  console.log(game);
+
   res.status(200).render('game', {
-    title: 'The Forest Hiker Game',
+    game: game,
   });
-};
+});
+
+exports.addGame = catchAsync(async (req, res) => {
+  res.status(200).render('addGame');
+});
+
+exports.getAbout = catchAsync(async (req, res) => {
+  res.status(200).render('about');
+});

@@ -11,11 +11,12 @@ block content
               .card__picture-overlay &nbsp;
               img.card_picture_img(src=`${game.image}`, alt=`${game.name}`)
             h3.heading-tertirary
-              span= game.name
+              span=game.name
           .card__details
             h4.card__sub-heading= `Platforms`
             p.card__text= `${game.platform.join(',')}`
           .card__footer
             p.card__ratings
               span.card__footer-value= `Overall rating: ${game.rating}`
+            a.btn.btn--green.btn--small(href=`/game/${game.id}`) Details
               | 

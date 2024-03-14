@@ -1,4 +1,36 @@
 extends base 
 
 block content 
-    h1 this is the game detail page 
+    section.section-header
+        //- .header__hero
+        //-     .header__hero-overlay &nbsp;
+        //-     img.header__hero-img(src='/img/logo.png', alt='Tour 5')
+
+        //- .heading-box
+        //-     h1.heading-primary
+        //-     span=game.name
+
+        //- section.section-description
+        //- .overview-box
+        //-     .overview-box__group
+        //-         h2.heading-secondary.ma-bt-lg Quick facts
+        //-         .overview-box__detail
+        //-         span.overview-box__label Difficulty
+        //-         | 
+        //-         span.overview-box__text Medium
+        //-         .overview-box__detail
+        //-         span.overview-box__label Rating
+        //-         | 
+        //-         span.overview-box__text 4.9 / 5
+
+
+        .description-box
+            h2.heading-secondary.ma-bt-lg=`About ${game.name}`
+            p.description__text Step into a Dark fantasy world where your choices have unpredictable consquences. You have awoken on a crashed alien ship, with nothing but steel in hand and your two feet to take you forward.
+            p.description__text Make strong friendships, betray those you care for, find love, and more as you create your own legend in Baldurs Gate 3.
+            p.description__text ---
+            h3.heading-secondary.ma-bt-lg=`AVERAGE SCORE FROM PLAYERS: ${game.rating} / 10`
+            p.description__text ---
+            h3.heading-secondary.ma-bt-lg=`APPROXIMATE TIME TO COMPLETE: ${game.length} HOURS`
+
+     
