@@ -20,7 +20,10 @@ app.use(morgan('dev'));
 // Routes
 app.use('/games', gameRouter);
 app.get('/', (req, res) => {
-  res.status(200).render('base');
+  res.status(200).render('base', {
+    tour: 'The Forest Hiker',
+    user: 'Steve',
+  });
 });
 
 app.get('/', (req, res) => {
