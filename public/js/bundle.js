@@ -5469,7 +5469,10 @@ var createNewGame = exports.createNewGame = /*#__PURE__*/function () {
           console.log(body);
           _context.next = 5;
           return _axios.default.post('http://localhost:3001/games', body, axiosConfig).then(function (res) {
-            return console.log(res);
+            alert("".concat(body.name, " successfully added!"));
+            window.setTimeout(function () {
+              location.assign('/overview');
+            }, 1500);
           }).catch(function (err) {
             return console.log(err.message);
           });

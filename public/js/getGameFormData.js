@@ -17,6 +17,11 @@ export const createNewGame = async (name, rating, length, platform) => {
 
   const res = await axios
     .post('http://localhost:3001/games', body, axiosConfig)
-    .then((res) => console.log(res))
+    .then((res) => {
+      alert(`${body.name} successfully added!`);
+      window.setTimeout(() => {
+        location.assign('/overview');
+      }, 1500);
+    })
     .catch((err) => console.log(err.message));
 };
