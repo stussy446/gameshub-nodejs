@@ -12,6 +12,7 @@ const gameSchema = new mongoose.Schema({
   rating: {
     type: Number,
     default: 7.0,
+    required: [true, 'A game must have a rating'],
   },
   length: {
     type: Number,
