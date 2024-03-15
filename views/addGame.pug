@@ -1,4 +1,22 @@
-extends base
+extends base 
 
-block content
-    h1 Add Game Page 
+block content 
+    main.main
+        h2.heading-secondary.ma-bt-lg Please Fill Out Below Information To Add a Game to the Collection
+        form.form
+            .form__group
+                label.form__label(for='name') Name
+                input#name.form__input(type='text', placeholder='Awesome Game', required)
+            .form__group.ma-bt-md
+                label.form__label(for='rating') Rating / 10
+                input#rating.form__input(type='text', placeholder='8', required)
+            .form__group.ma-bt-md
+                label.form__label(for='length') Hours to Complete
+                input#length.form__input(type='text', placeholder='65', required)
+            .form__group.ma-bt-md
+                label.form__label(for='platform') Rating / 10
+                input#platform.form__input(type='text', placeholder='PS5, Xbox')
+            .form__group
+                button.btn.btn--green Login
+
+        
