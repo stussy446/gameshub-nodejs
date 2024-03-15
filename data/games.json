@@ -26,6 +26,16 @@
     "name": "Baldurs Gate 3",
     "rating": 9,
     "length": 65,
+    "platform": ["PC, PS5, Xbox"],
+
     "image": "/img/baldurs.png"
+  },
+
+  {
+    "name": "Final Fantasy 7",
+    "rating": 7,
+    "length": 60,
+    "platform": ["PC, PS1"],
+    "image": "/img/cloud.png"
   }
 ]
