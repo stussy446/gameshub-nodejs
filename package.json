@@ -6,8 +6,8 @@
   "scripts": {
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js",
-    "build:js": "parcel watch ./public/js/index.js --out-dir ./public/js --out-file bundle.js"
+    "watch": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js --watch ",
+    "build": "esbuild ./public/js/index.js --bundle --outfile=./public/js/bundle.js "
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,7 @@
   "dependencies": {
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
+    "esbuild": "0.20.2",
     "express": "^4.18.3",
     "mongodb": "^6.5.0",
     "mongoose": "^8.2.1",
