@@ -1,8 +1,22 @@
 /* eslint-disable */
-const alertFunc = () => {
-  alert('hey');
+import axios from 'axios';
+
+let axiosConfig = {
+  headers: {
+    'Content-Type': 'application/json;charset=UTF-8',
+    'Access-Control-Allow-Origin': '*',
+  },
 };
-document.querySelector('.form').addEventListener('submit', (e) => {
-  e.preventDefault();
-  alertFunc();
-});
+
+export const createNewGame = async (name, rating, length, platform) => {
+  platform = platform.split(',');
+
+  const body = { name, rating, length, platform };
+
+  console.log(body);
+
+  const res = await axios
+    .post('http://localhost:3001/games', body, axiosConfig)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err.message));
+};
