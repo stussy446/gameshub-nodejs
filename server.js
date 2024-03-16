@@ -2,6 +2,7 @@
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const app = require('./app');
+const client = require('./socket');
 
 // enables usage of variables from .env file
 dotenv.config();
