@@ -30,3 +30,7 @@ exports.addGame = catchAsync(async (req, res) => {
 exports.getAbout = catchAsync(async (req, res) => {
   res.status(200).render('about');
 });
+
+exports.getRandom = catchAsync(async (req, res) => {
+  res.status(200).render('random');
+});

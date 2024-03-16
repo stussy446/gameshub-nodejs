@@ -11,4 +11,6 @@ router.get('/game/:id', viewsController.getGame);
 
 router.get('/overview', viewsController.getOverview);
 
+router.get('/random', viewsController.getRandom);
+
 module.exports = router;
