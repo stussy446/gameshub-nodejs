@@ -1,6 +1,7 @@
 /* eslint-disable */
 import { createNewGame } from './getGameFormData';
 
+// logic for submitting form to add a new game
 const nameInput = document.querySelector('#name');
 const ratingInput = document.querySelector('#rating');
 const lengthInput = document.querySelector('#length');
