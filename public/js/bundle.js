@@ -2168,7 +2168,10 @@
         method: "DELETE",
         url: `http://localhost:3001/games/${id}`
       });
-      console.log(res.data);
+      alert("Game deleted, press ok to return to All Games page");
+      window.setTimeout(() => {
+        location.assign("/overview");
+      }, 500);
     } catch (err) {
       console.log(err.message);
     }
@@ -2177,8 +2180,9 @@
   var gameID = deleteButton.getAttribute("gameID");
   deleteButton.addEventListener("click", (e) => {
     e.preventDefault();
-    console.log(`delete id is ${gameID}`);
-    deleteGame(gameID);
+    if (confirm("Are you sure you want to delete this game?")) {
+      deleteGame(gameID);
+    }
   });
 
   // public/js/index.js
