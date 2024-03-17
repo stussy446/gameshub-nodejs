@@ -5,6 +5,7 @@ const path = require('path');
 // router imports
 const gameRouter = require('./routes/gameRoutes');
 const viewRouter = require('./routes/viewRoutes');
+const socketRouter = require('./routes/socketRoute');
 
 // initializes express application
 const app = express();
@@ -21,6 +22,7 @@ app.use(morgan('dev'));
 // Routes
 app.use('/', viewRouter);
 app.use('/games', gameRouter);
+app.use('/randomGame', socketRouter);
 
 app.get('/', (req, res) => {
   res.status(200).render('base', {

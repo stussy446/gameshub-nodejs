@@ -10,5 +10,10 @@ block content
             h3.heading-secondary.ma-bt-lg=`AVERAGE SCORE FROM PLAYERS: ${game.rating} / 10`
             p.description__text ---
             h3.heading-secondary.ma-bt-lg=`APPROXIMATE TIME TO COMPLETE: ${game.length} HOURS`
+            <br>
+            button(type="button", gameID=`${game.id}`)#delete.btn.btn--green Delete Game 
+
+        script(src='../js/deleteGame.js')
+
 
      
