@@ -11,7 +11,7 @@ const getRandomGame = async () => {
       method: 'GET',
       url: 'http://localhost:3001/randomGame',
     });
-    console.log(res.data);
+    alert('name generated, take a look at your terminal!');
   } catch (err) {
     console.log(err.message);
   }

@@ -13,4 +13,6 @@ router.get('/overview', viewsController.getOverview);
 
 router.get('/random', viewsController.getRandom);
 
+router.get('/account', viewsController.getAccount);
+
 module.exports = router;

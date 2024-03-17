@@ -34,3 +34,7 @@ exports.getAbout = catchAsync(async (req, res) => {
 exports.getRandom = catchAsync(async (req, res) => {
   res.status(200).render('random');
 });
+
+exports.getAccount = catchAsync(async (req, res) => {
+  res.status(200).render('account');
+});
