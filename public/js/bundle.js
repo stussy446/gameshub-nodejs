@@ -2100,27 +2100,27 @@
     };
     return instance;
   }
-  var axios = createInstance(defaults_default);
-  axios.Axios = Axios_default;
-  axios.CanceledError = CanceledError_default;
-  axios.CancelToken = CancelToken_default;
-  axios.isCancel = isCancel;
-  axios.VERSION = VERSION;
-  axios.toFormData = toFormData_default;
-  axios.AxiosError = AxiosError_default;
-  axios.Cancel = axios.CanceledError;
-  axios.all = function all(promises) {
+  var axios2 = createInstance(defaults_default);
+  axios2.Axios = Axios_default;
+  axios2.CanceledError = CanceledError_default;
+  axios2.CancelToken = CancelToken_default;
+  axios2.isCancel = isCancel;
+  axios2.VERSION = VERSION;
+  axios2.toFormData = toFormData_default;
+  axios2.AxiosError = AxiosError_default;
+  axios2.Cancel = axios2.CanceledError;
+  axios2.all = function all(promises) {
     return Promise.all(promises);
   };
-  axios.spread = spread;
-  axios.isAxiosError = isAxiosError;
-  axios.mergeConfig = mergeConfig;
-  axios.AxiosHeaders = AxiosHeaders_default;
-  axios.formToJSON = (thing) => formDataToJSON_default(utils_default.isHTMLForm(thing) ? new FormData(thing) : thing);
-  axios.getAdapter = adapters_default.getAdapter;
-  axios.HttpStatusCode = HttpStatusCode_default;
-  axios.default = axios;
-  var axios_default = axios;
+  axios2.spread = spread;
+  axios2.isAxiosError = isAxiosError;
+  axios2.mergeConfig = mergeConfig;
+  axios2.AxiosHeaders = AxiosHeaders_default;
+  axios2.formToJSON = (thing) => formDataToJSON_default(utils_default.isHTMLForm(thing) ? new FormData(thing) : thing);
+  axios2.getAdapter = adapters_default.getAdapter;
+  axios2.HttpStatusCode = HttpStatusCode_default;
+  axios2.default = axios2;
+  var axios_default = axios2;
 
   // node_modules/axios/index.js
   var {
@@ -2160,6 +2160,26 @@
       }, 1500);
     }).catch((err) => console.log(err.message));
   };
+
+  // public/js/deleteGame.js
+  var deleteGame = async (id) => {
+    try {
+      const res = await axios({
+        method: "DELETE",
+        url: `http://localhost:3001/games/${id}`
+      });
+      console.log(res.data);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+  var deleteButton = document.querySelector("#delete");
+  var gameID = deleteButton.getAttribute("gameID");
+  deleteButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    console.log(`delete id is ${gameID}`);
+    deleteGame(gameID);
+  });
 
   // public/js/index.js
   var nameInput = document.querySelector("#name");
